@@ -12,7 +12,7 @@ void		Phonebook::setFirstName(std::string str) {
 	this->_first_name = str;
 }
 
-void		Phonebook::setLastNmae(std::string str) {
+void		Phonebook::setLastName(std::string str) {
 	this->_last_name = str;
 }
 
