@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/ibohonos/Documents/mygit/piscine_cpp/d00/ex01/Phonebook.class.cpp
+
+/Users/ibohonos/Documents/mygit/piscine_cpp/d00/ex01/Phonebook.class.hpp
+iostream
+-
+string
+-
+
+/Users/ibohonos/Documents/mygit/piscine_cpp/d00/ex01/main.cpp
+Phonebook.class.hpp
+/Users/ibohonos/Documents/mygit/piscine_cpp/d00/ex01/Phonebook.class.hpp
+

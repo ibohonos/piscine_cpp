@@ -1,27 +1,16 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/06/12 18:20:25 by ibohonos          #+#    #+#              #
-#    Updated: 2018/06/12 18:43:42 by ibohonos         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+NAME		= phonebook
 
-NAME     = phonebook
+SRCS		= Phonebook.class.cpp main.cpp
+OBJS		= $(SRCS:.cpp=.o)
+INCL		= Phonebook.class.hpp
 
-SRCS     = main.cpp
-OBJS     = $(SRCS:.cpp=.o)
-
-CXX      = g++
-CXXFLAGS = -Wall -Werror -Wextra
+CXX			= g++
+CXXFLAGS	= -Wall -Werror -Wextra
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CXX) $(OBJS) -o $@
+	@$(CXX) $(OBJS) -o $@ -I $(INCL)
 
 %.o: %.cpp
 	@$(CXX) $(CXXFLAGS) -o $@ -c $<
@@ -33,6 +22,6 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "\x1B[3;31m[IN$(NAME) removed!\x1B[0m"
+	@echo "\x1B[3;31m$(NAME) removed!\x1B[0m"
 
 re: fclean all
