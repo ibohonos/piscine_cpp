@@ -5,8 +5,8 @@ ZombieHorde::ZombieHorde(int n) : number(n) {
 
 	for (int i = 0; i < this->number; i++)
 	{
-		this->zombie[i].setType("Horde");
-		this->zombie[i].setNmae(this->randomChump());
+		this->zombie[i].type = "Horde";
+		this->zombie[i].name = this->randomChump();
 	}
 }
 
@@ -14,7 +14,7 @@ ZombieHorde::ZombieHorde(void) {}
 
 ZombieHorde::~ZombieHorde(void) {}
 
-std::string	*ZombieHorde::randomChump(void) {
+std::string	ZombieHorde::randomChump(void) {
 	int			i;
 	std::string	names[] = {"John", "Hello", "World", "Harry", "Potter"};
 

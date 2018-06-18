@@ -12,6 +12,7 @@ class Zombie {
 		std::string		type;
 
 		Zombie(std::string, std::string);
+		Zombie(void);
 		~Zombie(void);
 
 		void	announce(void);

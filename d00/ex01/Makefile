@@ -4,7 +4,7 @@ SRCS		= Phonebook.class.cpp main.cpp
 OBJS		= $(SRCS:.cpp=.o)
 INCL		= Phonebook.class.hpp
 
-CXX			= g++
+CXX			= clang++
 CXXFLAGS	= -Wall -Werror -Wextra
 
 all: $(NAME)

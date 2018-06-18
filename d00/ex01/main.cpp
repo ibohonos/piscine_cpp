@@ -37,6 +37,7 @@ void	addContact(Phonebook *book)
 	std::cout << "Enter darkest secret: ";
 	std::getline(std::cin, buf);
 	book->setDarkestSecret(buf);
+	std::cout << "Contact added!" << std::endl;
 }
 
 void	search(Phonebook book[8], int i)
@@ -92,9 +93,10 @@ int		main(void)
 	Phonebook	book[8];
 	std::string	command;
 
-	std::cout << "Hello! alowed commands: ADD, SEARCH and EXIT." << std::endl;
+	std::cout << "Hello!" << std::endl;
 	while (1)
 	{
+		std::cout << "Allowed commands: ADD, SEARCH and EXIT." << std::endl;
 		std::cout << "Enter command: ";
 		std::getline(std::cin, command);
 		if (command == "EXIT")
