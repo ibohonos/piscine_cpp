@@ -5,6 +5,7 @@ int main(void)
 	Zombie		*zombie1;
 	Zombie		*zombie2;
 	Zombie		*zombie3;
+	Zombie		zombie4;
 	ZombieEvent	event;
 
 	zombie1 = event.randomChump();
@@ -20,6 +21,8 @@ int main(void)
 	zombie3 = event.randomChump();
 	zombie3->announce();
 	delete zombie3;
+
+	zombie4.announce();
 
 	return (0);
 }

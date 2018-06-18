@@ -5,7 +5,10 @@ Zombie::Zombie(std::string n, std::string t) : name(n), type(t)
 	std::cout << "Zombie is created!" << std::endl;
 }
 
-Zombie::Zombie(void) {}
+Zombie::Zombie(void) : name("Test"), type("hello")
+{
+	std::cout << "Zombie is created!" << std::endl;
+}
 
 Zombie::~Zombie(void)
 {
@@ -14,5 +17,5 @@ Zombie::~Zombie(void)
 
 void	Zombie::announce(void)
 {
-	std::cout << "<" << name << " (" << type << ")> Braiiiiiiinnnssss..." << std::endl;
+	std::cout << "<" << this->name << " (" << this->type << ")> Braiiiiiiinnnssss..." << std::endl;
 }

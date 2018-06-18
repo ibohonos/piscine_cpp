@@ -12,7 +12,9 @@ ZombieHorde::ZombieHorde(int n) : number(n) {
 
 ZombieHorde::ZombieHorde(void) {}
 
-ZombieHorde::~ZombieHorde(void) {}
+ZombieHorde::~ZombieHorde(void) {
+	delete [] this->zombie;
+}
 
 std::string	ZombieHorde::randomChump(void) {
 	int			i;
