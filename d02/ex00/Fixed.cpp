@@ -13,7 +13,7 @@ Fixed::~Fixed(void) {
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed	&Fixed::operator=(Fixed const &rfs) {
+Fixed	&Fixed::operator=( Fixed const &rfs ) {
 	std::cout << "Assignation operator called" << std::endl;
 	if (this != &rfs)
 		this->_value = rfs.getRawBits();

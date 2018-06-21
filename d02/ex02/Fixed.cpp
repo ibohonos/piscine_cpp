@@ -18,77 +18,77 @@ Fixed::Fixed(Fixed const &src) {
 Fixed::~Fixed(void) {
 }
 
-Fixed 	&Fixed::operator=(Fixed const &rfs) {
+Fixed 	&Fixed::operator=( Fixed const &rfs ) {
 	if (this != &rfs)
 		this ->_value = rfs.getRawBits();
 	return *this;
 }
 
-Fixed 	Fixed::operator+(Fixed const &rfs) const {
+Fixed 	Fixed::operator+( Fixed const &rfs ) const {
 	Fixed res;
 	res._value = this->_value + rfs.getRawBits();
 	return res;
 }
 
-Fixed 	Fixed::operator-(Fixed const &rfs) const {
+Fixed 	Fixed::operator-( Fixed const &rfs ) const {
 	Fixed res;
 	res._value = this->_value - rfs.getRawBits();
 	return res;
 }
 
-Fixed 	Fixed::operator*(Fixed const &rfs) const {
+Fixed 	Fixed::operator*( Fixed const &rfs ) const {
 	Fixed res;
 	res._value = (this->_value * rfs.getRawBits()) >> this->_bits;
 	return res;
 }
 
-Fixed 	Fixed::operator/(Fixed const &rfs) const {
+Fixed 	Fixed::operator/( Fixed const &rfs ) const {
 	Fixed res;
 	res._value = (this->_value << this->_bits) / rfs.getRawBits() ;
 	return res;
 }
 
-bool 	Fixed::operator>(Fixed const &rfs) const {
+bool 	Fixed::operator>( Fixed const &rfs ) const {
 	return (this->_value > rfs.getRawBits());
 }
 
-bool 	Fixed::operator>=(Fixed const &rfs) const {
+bool 	Fixed::operator>=( Fixed const &rfs ) const {
 	return (this->_value >= rfs.getRawBits());
 }
 
-bool 	Fixed::operator<(Fixed const &rfs) const {
+bool 	Fixed::operator<( Fixed const &rfs ) const {
 	return (this->_value < rfs.getRawBits());
 }
 
-bool 	Fixed::operator<=(Fixed const &rfs) const {
+bool 	Fixed::operator<=( Fixed const &rfs ) const {
 	return (this->_value <= rfs.getRawBits());
 }
 
-bool 	Fixed::operator==(Fixed const &rfs) const {
+bool 	Fixed::operator==( Fixed const &rfs ) const {
 	return (this->_value == rfs.getRawBits());
 }
 
-bool 	Fixed::operator!=(Fixed const &rfs) const {
+bool 	Fixed::operator!=( Fixed const &rfs ) const {
 	return (this->_value != rfs.getRawBits());
 }
 
-Fixed 	&Fixed::operator++(void) {
+Fixed 	&Fixed::operator++( void ) {
 	(this->_value)++;
 	return *this;
 }
 
-Fixed 	Fixed::operator++(int) {
+Fixed 	Fixed::operator++( int ) {
 	Fixed ret(*this);
 	(this->_value)++;
 	return ret;
 }
 
-Fixed 	&Fixed::operator--(void) {
+Fixed 	&Fixed::operator--( void ) {
 	(this->_value)--;
 	return *this;
 }
 
-Fixed 	Fixed::operator--(int) {
+Fixed 	Fixed::operator--( int ) {
 	Fixed ret(*this);
 	(this->_value)--;
 	return ret;
