@@ -9,7 +9,7 @@ class Fixed {
 		Fixed(Fixed const &rfs);
 		~Fixed(void);
 
-		Fixed 	&operator=(Fixed const &rfs);
+		Fixed 	&operator=( Fixed const &rfs );
 		int		getRawBits(void) const;
 
 	private:
