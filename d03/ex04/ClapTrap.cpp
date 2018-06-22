@@ -25,6 +25,10 @@ std::string		ClapTrap::getName(void) const {
 	return (this->_name);
 }
 
+std::string		ClapTrap::getLogo(void) const {
+	return (this->_logo);
+}
+
 ClapTrap		&ClapTrap::operator=( ClapTrap const &rfs ) {
 	this->_name = rfs._name;
 	this->_logo = rfs._logo;

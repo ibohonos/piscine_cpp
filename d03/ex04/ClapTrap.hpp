@@ -13,7 +13,8 @@ class ClapTrap {
 		~ClapTrap(void);
 
 		ClapTrap	&operator=( ClapTrap const &rfs );
-		std::string	getName(void) const;
+		virtual std::string	getName(void) const;
+		virtual std::string	getLogo(void) const;
 
 		void		rangedAttack(std::string const &target) const;
 		void		meleeAttack(std::string const &target) const;
