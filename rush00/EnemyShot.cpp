@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   EnemyShot.cpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: pzubar <marvin@42.fr>                      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/24 20:22:49 by pzubar            #+#    #+#             */
-/*   Updated: 2018/06/24 20:22:50 by pzubar           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "EnemyShot.hpp"
 
 EnemyShot::EnemyShot(){}
@@ -43,12 +31,12 @@ EnemyShot::EnemyShot(EnemyShot const &other)
 
 EnemyShot &EnemyShot::operator=(EnemyShot const &rhs)
 {
-	_xMax = rhs._xMax;
+    _xMax = rhs._xMax;
     _yMax = rhs._yMax;
     _isDisp = rhs._isDisp;
     _enemies = rhs._enemies;
     _player = rhs._player;
-	return *this;
+    return *this;
 }
 
 void EnemyShot::move(void)
@@ -75,8 +63,6 @@ void EnemyShot::initObject(WINDOW *win)
     _win = win;
     _isDisp = false;
     getmaxyx(getWindow(), this->_yMax, this->_xMax);
-    // setXPos(rand() % this->_xMax + 3);
-    // setYPos(3);
     setSizeX(1);
     setSizeY(1);
 }

@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Enemy.cpp                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: pzubar <marvin@42.fr>                      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/23 13:48:15 by pzubar            #+#    #+#             */
-/*   Updated: 2018/06/23 13:48:16 by pzubar           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Enemy.hpp"
 
 int Enemy::_enemiesNum = 0;
@@ -48,7 +36,7 @@ void Enemy::deletePath(void)
 void Enemy::display(void)
 {
 	start_color();
-	init_pair(2, COLOR_RED, COLOR_WHITE);
+	init_pair(2, COLOR_MAGENTA, COLOR_WHITE);
 	wattron(getWindow(), A_REVERSE);
 	wattron(getWindow(), COLOR_PAIR(2));
 	mvwaddstr(getWindow(), getYPos(), getXPos(), "|");

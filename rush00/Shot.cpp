@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Shot.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: pzubar <marvin@42.fr>                      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/24 15:48:43 by pzubar            #+#    #+#             */
-/*   Updated: 2018/06/24 15:48:45 by pzubar           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Shot.hpp"
 
 int Shot::shotsNum = 0;
@@ -84,8 +72,6 @@ void Shot::initObject(WINDOW *win)
 	_win = win;
 	_isDisp = 0;
 	getmaxyx(getWindow(), this->_yMax, this->_xMax);
-	// setXPos(rand() % this->_xMax + 3);
-	// setYPos(3);
 	setSizeX(1);
 	setSizeY(1);
 }

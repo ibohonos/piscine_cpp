@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Asteroids.cpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: pzubar <marvin@42.fr>                      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/23 13:48:15 by pzubar            #+#    #+#             */
-/*   Updated: 2018/06/23 13:48:16 by pzubar           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Asteroids.hpp"
 
 int Asteroids::_asteroidsNum = 0;
@@ -43,7 +31,7 @@ void Asteroids::deletePath(void)
 void Asteroids::display(void)
 {
 	start_color();
-	init_pair(10, COLOR_BLUE, COLOR_WHITE);
+	init_pair(10, COLOR_CYAN, COLOR_BLACK);
 	wattron(getWindow(), A_REVERSE);
 	wattron(getWindow(), COLOR_PAIR(10));
 	mvwaddstr(getWindow(), getYPos(), getXPos(), " @ ");

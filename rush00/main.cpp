@@ -45,29 +45,32 @@ void ft_draw_borders(WINDOW *win)
 
 int main(void)
 {
+	int			yMax;
+	int			xMax;
+	int			time = 0;
+	int			phase = 0;
+	int			ahase = 0;
+	int			sthase = 0;
+	int			msecs = 0;
+	int			esc;
+	int			button;
+
 	initscr();
 	noecho();
 	cbreak();
 	curs_set(0);
-	int yMax, xMax;
-	int time = 0;
-	int phase = 0;
-	int ahase = 0;
-	int sthase = 0;
-	int msecs = 0;
 	nodelay(stdscr, true);
 	keypad(stdscr, true);
 	getmaxyx(stdscr, yMax, xMax);
 
-	WINDOW * playerwin = newwin(yMax - 1, xMax - (xMax*0.3), 0, 0);
-	Enemy w[ENEM_NUM];
-	Asteroids a[ASTEROIDS_NUM];
-	Stars star[STARS_NUM];
-	Shot s[SHOTS_NUM];
+	WINDOW		*playerwin = newwin(yMax - 1, xMax - (xMax * 0.3), 0, 0);
+	Enemy		w[ENEM_NUM];
+	Asteroids	a[ASTEROIDS_NUM];
+	Stars		star[STARS_NUM];
+	Shot		s[SHOTS_NUM];
+	EnemyShot	enemshot[SHOTS_NUM];
+	Player		p(playerwin, w, a, star);
 
-	EnemyShot enemshot[SHOTS_NUM];
-	
-	Player p(playerwin, w, a, star);
 	for(int i = 0; i < ENEM_NUM; i++)
 		w[i].initObject(playerwin);
 	for(int i = 0; i < ASTEROIDS_NUM; i++)
@@ -76,21 +79,18 @@ int main(void)
 		s[i].initObject(playerwin);
 	for(int i = 0; i < STARS_NUM; i++)
 		star[i].initObject(playerwin);
-	
+
 	for (int i = 0; i < SHOTS_NUM; i++)
 	{
 		enemshot[i].setEnemiesPlayer(w, &p);
 		enemshot[i].initObject(playerwin);
 	}
 	p.setShots(s);
-	int esc;
-
-	int button;
 
 	while (42)
 	{
 		if (!p.isAlive())
-            break ;
+			break ;
 		ft_draw_borders(playerwin);
 		mvprintw(2, xMax * 0.8 + 2, "Time: %d\n", time);
 		mvprintw(3, xMax * 0.8 + 2, "Lives: %d\n", p.getLives());
@@ -101,11 +101,10 @@ int main(void)
 		if (!(msecs % 2))
 			for (int i = 0; i < SHOTS_NUM; i++)
 					s[i].move();
-		
-		
+
 		for (int i = 0; i < SHOTS_NUM; i++)
 			enemshot[i].move();	
-		
+
 		for (int i = 0; i < SHOTS_NUM; i++)
 			if (enemshot[i].checkCollision())
 			{
@@ -115,21 +114,15 @@ int main(void)
 			}
 
 		for (int i = 0; i < (ENEM_NUM); i++)
-		{
 			if (w[i].getIsDisp())
 				if (w[i].getXPos() == p.getXPos() || w[i].getXPos() == p.getXPos() + 1 || w[i].getXPos() == p.getXPos() + 2)
-				{
 					for (int a = 0; a < SHOTS_NUM; a++)
-					{
 						if (!enemshot[a].getIsDisp())
 						{
 							enemshot[a].setXPos(w[i].getXPos());
 							enemshot[a].setYPos(w[i].getYPos() + 1);
-							enemshot[a].display();	
+							enemshot[a].display();
 						}
-					}
-				}
-		}
 
 		if (!(msecs % 25))
 		{
@@ -141,8 +134,8 @@ int main(void)
 			phase += ENEM_NUM / (yMax / 2);
 			if (phase >= ENEM_NUM)
 				phase = 0;
-			
 		}
+
 		if (!(msecs % 5))
 		{
 			for (int i = 0; i < ENEM_NUM; i++)
@@ -150,7 +143,7 @@ int main(void)
 			for (int i = 0; i < ASTEROIDS_NUM; i++)
 				a[i].mvdown();
 		}
-		
+
 		if (!(msecs % 15)) {
 			for (int i = 0; i < (ASTEROIDS_NUM / (yMax / 2)); i++)
 			{
@@ -161,10 +154,10 @@ int main(void)
 			if (ahase >= ASTEROIDS_NUM)
 				ahase = 0;
 		}
+
 		if (!(msecs % 20))
-		{
 			time++;
-		}
+
 		if (!(msecs % 40))
 		{
 			for (int i = 0; i < (STARS_NUM / (yMax / 2)); i++)
@@ -179,19 +172,19 @@ int main(void)
 				star[i].mvdown();
 			msecs = 0;
 		}
-		
+
 		button = p.getmv();
-		if (button == (int)'x')
+		if (button == (int)'x' || button == 27)
 			break ;
 		else if (button == 32)
 		{
 			system("afplay laser.aiff &");
 			p.shot();
 		}
-		else if (button == 27)
-			break ;
+
 		for(int i = 0; i < SHOTS_NUM; i++)
 			s[i].checkCollision(w, a);
+
 		msecs++;
 		while ((esc = getch()) > -1 && esc != 27 && esc != ' ');
 		usleep(50000);
@@ -207,12 +200,11 @@ int main(void)
 		mvprintw(3, xMax * 0.7 + 2, "Please, try again", time);
 		mvprintw(4, xMax * 0.7 + 2, "X or ESC to quit", time);
 		button = p.getmv();
-		if (button == (int)'x')
-			break ;
-		else if (button == 27)
+		if (button == (int)'x' || button == 27)
 			exit(1);
 		while ((esc = getch()) > -1 && esc != 27 && esc != ' ');
 	}
 	endwin();
+
 	return(0);
 }

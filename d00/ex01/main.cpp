@@ -99,7 +99,7 @@ int		main(void)
 		std::cout << "Allowed commands: ADD, SEARCH and EXIT." << std::endl;
 		std::cout << "Enter command: ";
 		std::getline(std::cin, command);
-		if (command == "EXIT")
+		if (command == "EXIT" || std::cin.eof())
 			break ;
 		else if (command == "ADD")
 		{

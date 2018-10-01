@@ -1,8 +1,7 @@
-
 #include "Player.hpp"
 
 Player::Player(void) {
-	setLives(3);
+	setLives(5);
 }
 
 Player::Player(WINDOW *win, Enemy *enemies, Asteroids *aster, Stars *star)
@@ -18,7 +17,7 @@ Player::Player(WINDOW *win, Enemy *enemies, Asteroids *aster, Stars *star)
 	setSizeX(3);
 	setSizeY(1);
 	keypad(getWindow(), true);
-	setLives(3);
+	setLives(5);
 }
 
 Player::Player(Player const &rfs) {
@@ -47,14 +46,12 @@ void		Player::deletePath(void)
 void Player::display(void)
 {
 	start_color();
-	init_pair(1, COLOR_CYAN, COLOR_BLACK);
-	// wattron(getWindow(), A_REVERSE);
+	init_pair(1, COLOR_BLUE, COLOR_BLACK);
 	wattron(getWindow(), COLOR_PAIR(1));
 	wattron(getWindow(), A_BOLD);
 	mvwaddstr(getWindow(), getYPos(), getXPos(), "\\M/");
 	wattroff(getWindow(), A_BOLD);
 	wattroff(getWindow(), COLOR_PAIR(1));
-	// wattroff(getWindow(), A_REVERSE);
 	checkCollision();
 }
 
@@ -220,7 +217,6 @@ int Player::getmv()
 		break;
 	case 27:
 		exit(1);
-		break;
 	default:
 		break;
 	}
@@ -242,8 +238,6 @@ void Player::shot(void)
 	int guns;
 
 	guns = 1;
-	// system("pkill afplay");
-	// system("afplay ~/Desktop/laser.aiff");
 	for (int i = 0; i < _shots->shotsNum; i++)
 	{
 		if (guns)
