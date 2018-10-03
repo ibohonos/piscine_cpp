@@ -8,18 +8,17 @@ int main(void)
 	Zombie		zombie4;
 	ZombieEvent	event;
 
-	zombie1 = event.randomChump();
+	zombie1 = event.newZombie("Jack");
 	zombie1->announce();
 	delete zombie1;
 
 	event.setZombieType("troll");
-	zombie2 = event.randomChump();
+	zombie2 = event.newZombie("Chack");
 	zombie2->announce();
 	delete zombie2;
 
 	event.setZombieType("macho");
 	zombie3 = event.randomChump();
-	zombie3->announce();
 	delete zombie3;
 
 	zombie4.announce();

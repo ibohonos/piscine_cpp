@@ -26,5 +26,6 @@ Zombie		*ZombieEvent::randomChump(void)
 		this->setZombieType("ded");
 	i = rand() % 5;
 	zombie = this->newZombie(names[i]);
+	zombie->announce();
 	return (zombie);
 }
