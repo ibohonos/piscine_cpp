@@ -13,6 +13,8 @@ class ScavTrap : public ClapTrap {
 		ScavTrap(ScavTrap const &rfs);
 		~ScavTrap(void);
 
+		ScavTrap 	&operator=( ScavTrap const &rfs );
+
 		void		challengeNewcomer(std::string const &target) const;
 
 };

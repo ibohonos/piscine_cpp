@@ -14,7 +14,7 @@ class Fixed {
 
 	private:
 		int					_value;
-		static int const	_bits = '8';
+		static int const	_bits = 8;
 };
 
 std::ostream 	&operator<<(std::ostream &o, Fixed const &rfs);

@@ -14,6 +14,8 @@ class NinjaTrap : virtual public ClapTrap {
 		NinjaTrap(NinjaTrap const &rfs);
 		~NinjaTrap(void);
 
+		NinjaTrap 	&operator=( NinjaTrap const &rfs );
+
 		void		ninjaShoebox(FragTrap &rfs) const;
 		void		ninjaShoebox(NinjaTrap &rfs) const;
 		void		ninjaShoebox(ScavTrap &frs) const;
