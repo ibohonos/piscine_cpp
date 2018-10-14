@@ -95,7 +95,7 @@ int main(void)
 		mvprintw(2, xMax * 0.8 + 2, "Time: %d\n", time);
 		mvprintw(3, xMax * 0.8 + 2, "Lives: %d\n", p.getLives());
 		mvprintw(4, xMax * 0.8 + 2, "Score: %d\n", s->getScore());
-		p.display();
+		p.disp();
 		wrefresh(playerwin);
 
 		if (!(msecs % 2))
@@ -106,22 +106,22 @@ int main(void)
 			enemshot[i].move();	
 
 		for (int i = 0; i < SHOTS_NUM; i++)
-			if (enemshot[i].checkCollision())
+			if (enemshot[i].colCheck())
 			{
 				p.setLives(p.getLives() - 1);
-				enemshot[i].setYPos(-999);
+				enemshot[i].setPY(-999);
 				break ;
 			}
 
 		for (int i = 0; i < (ENEM_NUM); i++)
 			if (w[i].getIsDisp())
-				if (w[i].getXPos() == p.getXPos() || w[i].getXPos() == p.getXPos() + 1 || w[i].getXPos() == p.getXPos() + 2)
+				if (w[i].getPX() == p.getPX() || w[i].getPX() == p.getPX() + 1 || w[i].getPX() == p.getPX() + 2)
 					for (int a = 0; a < SHOTS_NUM; a++)
 						if (!enemshot[a].getIsDisp())
 						{
-							enemshot[a].setXPos(w[i].getXPos());
-							enemshot[a].setYPos(w[i].getYPos() + 1);
-							enemshot[a].display();
+							enemshot[a].setPX(w[i].getPX());
+							enemshot[a].setPY(w[i].getPY() + 1);
+							enemshot[a].disp();
 						}
 
 		if (!(msecs % 25))
@@ -129,7 +129,7 @@ int main(void)
 			for (int i = 0; i < (ENEM_NUM / (yMax / 2)); i++)
 			{
 				int n = phase + i;
-				w[n].display();
+				w[n].disp();
 			}
 			phase += ENEM_NUM / (yMax / 2);
 			if (phase >= ENEM_NUM)
@@ -139,16 +139,16 @@ int main(void)
 		if (!(msecs % 5))
 		{
 			for (int i = 0; i < ENEM_NUM; i++)
-				w[i].mvdown();
+				w[i].dwnmv();
 			for (int i = 0; i < ASTEROIDS_NUM; i++)
-				a[i].mvdown();
+				a[i].dwnmv();
 		}
 
 		if (!(msecs % 15)) {
 			for (int i = 0; i < (ASTEROIDS_NUM / (yMax / 2)); i++)
 			{
 				int k = ahase + i;
-				a[k].display();
+				a[k].disp();
 			}
 			ahase += ASTEROIDS_NUM / (yMax / 2);
 			if (ahase >= ASTEROIDS_NUM)
@@ -163,13 +163,13 @@ int main(void)
 			for (int i = 0; i < (STARS_NUM / (yMax / 2)); i++)
 			{
 				int l = sthase + i;
-				star[l].display();
+				star[l].disp();
 			}
 			sthase += STARS_NUM / (yMax / 2);
 			if (sthase >= STARS_NUM)
 				sthase = 0;
 			for (int i = 0; i < STARS_NUM; i++)
-				star[i].mvdown();
+				star[i].dwnmv();
 			msecs = 0;
 		}
 
@@ -183,7 +183,7 @@ int main(void)
 		}
 
 		for(int i = 0; i < SHOTS_NUM; i++)
-			s[i].checkCollision(w, a);
+			s[i].colCheck(w, a);
 
 		msecs++;
 		while ((esc = getch()) > -1 && esc != 27 && esc != ' ');

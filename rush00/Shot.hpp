@@ -16,20 +16,20 @@ class Shot : public Objects
 		Shot		&operator=( Shot const &rfs );
 
 		void move(void);
-		void display(void);
-		void deletePath(void);
+		void disp(void);
+		void pathDell(void);
 		void setScore(int n);
 		int getScore(void);
 		void initObject(WINDOW *win);
 
 		bool getIsDisp(void);
 		static int shotsNum;
-		void checkCollision(Enemy *enems, Asteroids *aster);
+		void colCheck(Enemy *enems, Asteroids *aster);
 
 	private:
-		int _xMax;
-		int _yMax;
-		bool _isDisp;
+		int _mx;
+		int _my;
+		bool _dis;
 		static int _score;
 };
 

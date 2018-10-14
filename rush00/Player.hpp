@@ -26,12 +26,12 @@ class Player : public Objects
 		Player		&operator=( Player const &rfs );
 
 		void mvup(void);
-		void mvdown(void);
+		void dwnmv(void);
 		void mvleft(void);
 		void mvright(void);
 		int getmv(void);
-		void display(void);
-		void deletePath(void);
+		void disp(void);
+		void pathDell(void);
 
 
 		void setShots(Shot * shots);
@@ -43,13 +43,13 @@ class Player : public Objects
 		void setHP(int n);
 		void setLives(int n);
 
-		void checkCollision(void);
+		void colCheck(void);
 		bool checkLife(void);
 		void shot(void);
 
 	private:
-		int _xMax;
-		int _yMax;
+		int _mx;
+		int _my;
 		Enemy *_enems;
 		Asteroids *_aster;
 		Stars *_star;

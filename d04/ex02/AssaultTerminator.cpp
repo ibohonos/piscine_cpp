@@ -1,8 +1,11 @@
 #include "AssaultTerminator.hpp"
-#include <iostream>
 
 AssaultTerminator::AssaultTerminator() {
 	std::cout << "* teleports from space *" << std::endl;
+}
+
+AssaultTerminator::~AssaultTerminator() {
+	std::cout << "“I’ll be back ..." << std::endl;
 }
 
 AssaultTerminator::AssaultTerminator(AssaultTerminator const &rfs) {
@@ -10,12 +13,7 @@ AssaultTerminator::AssaultTerminator(AssaultTerminator const &rfs) {
 	std::cout << "* teleports from space *" << std::endl;
 }
 
-AssaultTerminator::~AssaultTerminator() {
-	std::cout << "I’ll be back ..." << std::endl;
-}
-
-AssaultTerminator &AssaultTerminator::operator=(AssaultTerminator const &rfs) {
-	(void)rfs;
+AssaultTerminator &AssaultTerminator::operator=(AssaultTerminator const &) {
 	return *this;
 }
 

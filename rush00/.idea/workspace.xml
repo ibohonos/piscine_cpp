@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+    <generated>
+      <config projectName="rush00" targetName="rush00" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="883351f7-e121-407b-b23f-5e2a628bb40d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../d04/ex00/Peon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex00/Peon.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex00/Peon.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex00/Peon.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex00/Sorcerer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex00/Sorcerer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex00/Sorcerer.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex00/Sorcerer.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex00/Victim.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex00/Victim.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex00/Victim.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex00/Victim.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex00/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex00/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex01/AWeapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex01/AWeapon.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex01/AWeapon.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex01/AWeapon.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex01/Character.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex01/Character.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex01/Character.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex01/Character.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex01/Enemy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex01/Enemy.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex01/Enemy.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex01/Enemy.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex01/PlasmaRifle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex01/PlasmaRifle.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex01/PlasmaRifle.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex01/PlasmaRifle.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex01/PowerFist.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex01/PowerFist.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex01/PowerFist.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex01/PowerFist.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex01/RadScorpion.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex01/RadScorpion.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex01/RadScorpion.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex01/RadScorpion.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex01/SuperMutant.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex01/SuperMutant.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex01/SuperMutant.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex01/SuperMutant.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex01/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex01/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex02/AssaultTerminator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex02/AssaultTerminator.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex02/AssaultTerminator.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex02/AssaultTerminator.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex02/ISpaceMarine.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex02/ISpaceMarine.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex02/ISquad.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex02/ISquad.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex02/Squad.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex02/Squad.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex02/Squad.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex02/Squad.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex02/TacticalMarine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex02/TacticalMarine.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex02/TacticalMarine.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex02/TacticalMarine.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../d04/ex02/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../d04/ex02/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asteroids.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Asteroids.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asteroids.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Asteroids.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asteroids.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Enemy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Enemy.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Enemy.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Enemy.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Enemy.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EnemyShot.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/EnemyShot.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EnemyShot.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/EnemyShot.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EnemyShot.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Objects.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Objects.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Player.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Player.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Player.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Player.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shot.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shot.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shot.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shot.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shot.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stars.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Stars.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stars.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Stars.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stars.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/author" beforeDir="false" afterPath="$PROJECT_DIR$/author" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ft_retro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.o" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FUSProjectUsageTrigger">
+    <session id="1807514204">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.14" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="cpp" value="3" />
+          <entry key="hpp" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="ObjectiveC" value="7" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>mvdown</find>
+      <find>display</find>
+      <find>deletePath</find>
+      <find>_xMax</find>
+      <find>_yMax</find>
+      <find>_isDisp</find>
+      <find>_xPos</find>
+      <find>_yPos</find>
+      <find>_sizeX</find>
+      <find>_sizeY</find>
+      <find>getXPos</find>
+      <find>getYPos</find>
+      <find>getSizeX</find>
+      <find>getSizeY</find>
+      <find>setXPos</find>
+      <find>setYPos</find>
+      <find>setSizeX</find>
+      <find>setSizeY</find>
+      <find>checkCollision</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>dwnmv</replace>
+      <replace>disp</replace>
+      <replace>pathDell</replace>
+      <replace>_mx</replace>
+      <replace>_my</replace>
+      <replace>_dis</replace>
+      <replace>_px</replace>
+      <replace>_py</replace>
+      <replace>_sx</replace>
+      <replace>_sy</replace>
+      <replace>getPX</replace>
+      <replace>getPY</replace>
+      <replace>getSX</replace>
+      <replace>getSY</replace>
+      <replace>setPX</replace>
+      <replace>setPY</replace>
+      <replace>setSX</replace>
+      <replace>setSY</replace>
+      <replace>colCheck</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/Asteroids.hpp" />
+        <option value="$PROJECT_DIR$/Objects.hpp" />
+        <option value="$PROJECT_DIR$/Player.hpp" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="23" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="rush00" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rush00" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.rush00">
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rush00" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="rush00" TARGET_NAME="rush00" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="rush00" RUN_TARGET_NAME="rush00">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Build All" />
+      <item itemvalue="Application.rush00" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="883351f7-e121-407b-b23f-5e2a628bb40d" name="Default Changelist" comment="" />
+      <created>1538939478236</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1538939478236</updated>
+      <workItem from="1538939487576" duration="881000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="881000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="2560" height="1336" extended-state="6" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13463067" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="CMake" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Player.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="40" column="27" lean-forward="true" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Objects.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="32" column="29" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Enemy.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="64" column="22" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Enemy.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Asteroids.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="23" column="24" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1950">
+          <caret line="143" column="21" selection-start-line="143" selection-start-column="21" selection-end-line="143" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Asteroids.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+  </component>
+</project>

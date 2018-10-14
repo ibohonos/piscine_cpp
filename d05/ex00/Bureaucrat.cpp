@@ -1,6 +1,7 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(void) : _name("Barry"), _grade(150) {}
+Bureaucrat::Bureaucrat() : _name("Barry"), _grade(150) {
+}
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
 	if (grade < 1)
@@ -16,34 +17,37 @@ Bureaucrat::Bureaucrat(Bureaucrat const &rfs) {
 	*this = rfs;
 }
 
-Bureaucrat::~Bureaucrat(void) {}
+Bureaucrat::~Bureaucrat() {
+}
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &rfs) {
-	this->_grade = rfs._grade;
+	_grade = rfs._grade;
+	(void)rfs;
 	return *this;
 }
 
 void Bureaucrat::operator++(int) {
-	if (this->_grade - 1 < 1)
+	if (_grade - 1 < 1)
 		throw Bureaucrat::GradeTooHighException();
-	this->_grade--;
+	_grade--;
 }
 void Bureaucrat::operator--(int) {
-	if (this->_grade + 1 > 150)
+	if (_grade + 1 > 150)
 		throw Bureaucrat::GradeTooLowException();
-	this->_grade++;
+	_grade++;
 }
 
-std::string Bureaucrat::getName(void) const {
-	return this->_name;
+std::string Bureaucrat::getName() const {
+	return _name;
 }
 
-int Bureaucrat::getGrade(void) const {
-	return this->_grade;
+int Bureaucrat::getGrade() const {
+	return _grade;
 }
 
 // too low
-Bureaucrat::GradeTooLowException::GradeTooLowException(void) {}
+Bureaucrat::GradeTooLowException::GradeTooLowException() {
+}
 
 Bureaucrat::GradeTooLowException::GradeTooLowException(GradeTooLowException const &rfs) {
 	*this = rfs;
@@ -54,14 +58,16 @@ Bureaucrat::GradeTooLowException &Bureaucrat::GradeTooLowException::operator=(Gr
 	return *this;
 }
 
-Bureaucrat::GradeTooLowException::~GradeTooLowException(void) throw() {}
+Bureaucrat::GradeTooLowException::~GradeTooLowException() throw() {
+}
 
-const char* Bureaucrat::GradeTooLowException::what(void) const throw() {
+const char* Bureaucrat::GradeTooLowException::what() const throw() {
 	return ("Grade is too low");
 }
 
 // too high :)
-Bureaucrat::GradeTooHighException::GradeTooHighException(void) {}
+Bureaucrat::GradeTooHighException::GradeTooHighException() {
+}
 
 Bureaucrat::GradeTooHighException::GradeTooHighException(GradeTooHighException const &rfs) {
 	*this = rfs;
@@ -72,10 +78,10 @@ Bureaucrat::GradeTooHighException &Bureaucrat::GradeTooHighException::operator=(
 	return *this;
 }
 
-Bureaucrat::GradeTooHighException::~GradeTooHighException(void) throw() {
+Bureaucrat::GradeTooHighException::~GradeTooHighException() throw() {
 }
 		
-const char* Bureaucrat::GradeTooHighException::what(void) const throw() {
+const char* Bureaucrat::GradeTooHighException::what() const throw() {
 	return ("Grade is too high");
 }
 

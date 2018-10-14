@@ -1,16 +1,19 @@
-#ifndef POWERFIST_H
-#define POWERFIST_H
-
+#ifndef POWERFIST_HPP
+#define POWERFIST_HPP
 #include "AWeapon.hpp"
+#include <iostream>
 
-class PowerFist : public AWeapon {
+class PowerFist : public AWeapon
+{
 	public:
 		PowerFist();
-		PowerFist(PowerFist const &rfs);
 		virtual ~PowerFist();
+		PowerFist(std::string const & name, int apcost, int damage);
+		PowerFist(PowerFist const &rfs);
 
-		PowerFist 	&operator=(PowerFist const &rfs);
-		virtual void 	attack() const;
+		PowerFist	&operator=(PowerFist const &rfs);
+		virtual void attack() const;
 };
 
 #endif
+

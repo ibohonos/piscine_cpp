@@ -12,17 +12,17 @@ class Stars : public Objects
 		~Stars(void);
 		Stars		&operator=( Stars const &rfs );
 		
-		void mvdown(void);
-		void display(void);
-		void deletePath(void);
+		void dwnmv(void);
+		void disp(void);
+		void pathDell(void);
 
 		void initObject(WINDOW *win);
 
 	private:
-		int			_xMax;
-		int			_yMax;
+		int			_mx;
+		int			_my;
 		static int	_starsNum;
-		bool		_isDisp;
+		bool		_dis;
 };
 
 #endif

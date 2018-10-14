@@ -1,7 +1,9 @@
-#ifndef ISPACEMARINE_H
-#define ISPACEMARINE_H
+#ifndef ISPACEMARINE_HPP
+#define ISPACEMARINE_HPP
+#include <iostream>
 
-class ISpaceMarine {
+class ISpaceMarine
+{
 	public:
 		virtual ~ISpaceMarine() {}
 		virtual ISpaceMarine* clone() const = 0;

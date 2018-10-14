@@ -1,28 +1,27 @@
-#ifndef CHARACTER_H
-#define CHARACTER_H
-
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 #include <iostream>
 #include "AWeapon.hpp"
 #include "Enemy.hpp"
 
-class Character {
-	protected:
-		std::string	_name;
+class Character
+{
+	private:
+		std::string _name;
 		int			_ap;
 		AWeapon		*_wpn;
 
-		Character();
-
 	public:
+		Character();
+		~Character();
 		Character(std::string const & name);
 		Character(Character const &rfs);
-		~Character();
+		Character	&operator=( Character const &rfs );
 
-		Character &operator=(Character const &frs);
 
-		void 			recoverAP();
-		void 			equip(AWeapon*);
-		void 			attack(Enemy*);
+		void recoverAP();
+		void equip(AWeapon*);
+		void attack(Enemy*);
 		std::string		getName() const;
 		int				getAP() const;
 		std::string		getWpnName() const;

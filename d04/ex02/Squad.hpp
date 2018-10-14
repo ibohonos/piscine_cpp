@@ -1,28 +1,32 @@
-#ifndef SQUAD_H
-#define SQUAD_H
+#ifndef SQUAD_HPP
+# define SQUAD_HPP
 
 #include "ISquad.hpp"
+# include "ISpaceMarine.hpp"
 
-class Squad : public ISquad {
+class Squad : public ISquad
+{
+	typedef struct s_list
+	{
+		ISpaceMarine	*data;
+		s_list			*next;
+	}				t_list;
+
 	private:
-		typedef struct 	s_list {
-			ISpaceMarine	*m;
-			s_list			*next;
-		}				t_list;
-
-		int		_units;
-		t_list	*_marines;
+		int		_nb;
+		t_list	*_list;
 
 	public:
-		Squad();
-		Squad(Squad const &rfs);
-		virtual ~Squad();
 
-		Squad &operator=(Squad const &frs);
+		Squad( void );
+		Squad( Squad const & src );
+		~Squad( void );
 
-		virtual int getCount() const;
-		virtual ISpaceMarine* getUnit(int) const;
-		virtual int push(ISpaceMarine*);
+		int		getCount() const;
+		ISpaceMarine*	getUnit( int index ) const;
+		int		push(ISpaceMarine* sm );
+	
+		Squad& operator=(Squad const & rhs);
 };
 
 #endif

@@ -11,19 +11,19 @@ class Enemy : public Objects
 		Enemy(void);
 		Enemy(Enemy const &other);
 		~Enemy(void);
-		void mvdown(void);
-		void display(void);
-		void deletePath(void);
+		void dwnmv(void);
+		void disp(void);
+		void pathDell(void);
 		bool getIsDisp(void);
 
 		void initObject(WINDOW *win);
 		Enemy		&operator=( Enemy const &rfs );
 
 	private:
-		int _xMax;
-		int _yMax;
+		int _mx;
+		int _my;
 		static int _enemiesNum;
-		bool _isDisp;
+		bool _dis;
 };
 
 #endif

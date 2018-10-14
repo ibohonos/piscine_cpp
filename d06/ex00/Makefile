@@ -4,7 +4,7 @@ SRCS		= main.cpp
 OBJS		= $(SRCS:.cpp=.o)
 
 CXX			= clang++
-CXXFLAGS	= -Wall -Werror -Wextra
+CXXFLAGS	= -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 

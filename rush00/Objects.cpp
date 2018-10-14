@@ -7,8 +7,8 @@ int Objects::_starsNum = 0;
 
 Objects::Objects(void) {}
 
-Objects::Objects(WINDOW *win) : _win(win), _xPos(0), _yPos(0),
-		_sizeX(0), _sizeY(0), _color("") {}
+Objects::Objects(WINDOW *win) : _win(win), _px(0), _py(0),
+		_sx(0), _sy(0), _color("") {}
 
 Objects::Objects(Objects const &rfs) {
 	*this = rfs;
@@ -17,10 +17,10 @@ Objects::Objects(Objects const &rfs) {
 Objects::~Objects(void) {}
 
 Objects		&Objects::operator=( Objects const &rfs ) {
-	this->_xPos = rfs._xPos;
-	this->_yPos = rfs._yPos;
-	this->_sizeX = rfs._sizeX;
-	this->_sizeY = rfs._sizeY;
+	this->_px = rfs._px;
+	this->_py = rfs._py;
+	this->_sx = rfs._sx;
+	this->_sy = rfs._sy;
 	this->_color = rfs._color;
 	this->_win = rfs._win;
 	this->_enemiesNum = rfs._enemiesNum;
@@ -30,20 +30,20 @@ Objects		&Objects::operator=( Objects const &rfs ) {
 	return *this;
 }
 
-int			Objects::getXPos(void) {
-	return this->_xPos;
+int			Objects::getPX(void) {
+	return this->_px;
 }
 
-int			Objects::getYPos(void) {
-	return this->_yPos;
+int			Objects::getPY(void) {
+	return this->_py;
 }
 
-int			Objects::getSizeX(void) {
-	return this->_sizeX;
+int			Objects::getSX(void) {
+	return this->_sx;
 }
 
-int			Objects::getSizeY(void) {
-	return this->_sizeY;
+int			Objects::getSY(void) {
+	return this->_sy;
 }
 
 int			Objects::getEnemsN(void) {
@@ -70,20 +70,20 @@ WINDOW		*Objects::getWindow(void) {
 	return this->_win;
 }
 
-void		Objects::setXPos(int n) {
-	this->_xPos = n;
+void		Objects::setPX(int n) {
+	this->_px = n;
 }
 
-void		Objects::setYPos(int n) {
-	this->_yPos = n;
+void		Objects::setPY(int n) {
+	this->_py = n;
 }
 
-void		Objects::setSizeX(int n) {
-	this->_sizeX = n;
+void		Objects::setSX(int n) {
+	this->_sx = n;
 }
 
-void		Objects::setSizeY(int n) {
-	this->_sizeY = n;
+void		Objects::setSY(int n) {
+	this->_sy = n;
 }
 
 void		Objects::setEnemsN(int n) {

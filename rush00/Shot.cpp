@@ -16,9 +16,9 @@ Shot::~Shot(void) {}
 
 Shot		&Shot::operator=( Shot const &rfs )
 {
-	this->_xMax = rfs._xMax;
-	this->_yMax = rfs._yMax;
-	this->_isDisp = rfs._isDisp;
+	this->_mx = rfs._mx;
+	this->_my = rfs._my;
+	this->_dis = rfs._dis;
 	return *this;
 }
 
@@ -33,90 +33,90 @@ void		Shot::setScore(int n)
 }
 
 
-void Shot::deletePath(void)
+void Shot::pathDell(void)
 {
-	mvwaddstr(getWindow(), getYPos(), getXPos(), " ");
+	mvwaddstr(getWindow(), getPY(), getPX(), " ");
 }
 
-void Shot::display(void)
+void Shot::disp(void)
 {
 	start_color();
 	init_pair(4, COLOR_GREEN, COLOR_BLACK);
 	wattron(getWindow(), COLOR_PAIR(4));
-	mvwaddstr(getWindow(), getYPos(), getXPos(), "-");
+	mvwaddstr(getWindow(), getPY(), getPX(), "-");
 	wattroff(getWindow(), COLOR_PAIR(4));
-	_isDisp = 1;
+	_dis = 1;
 }
 
 void Shot::move(void)
 {
-	if (!_isDisp)
+	if (!_dis)
 	 	return;
-	this->deletePath();
-	int y = getYPos();
+	this->pathDell();
+	int y = getPY();
 	y -= 1;
 	if (y < 2)
 	{
-		setYPos(0);
-		setXPos(0);
-		this->display();
+		setPY(0);
+		setPX(0);
+		this->disp();
 		this->initObject(getWindow());
 		return;
 	}
-	setYPos(y);
-	this->display();
+	setPY(y);
+	this->disp();
 }
 
 void Shot::initObject(WINDOW *win)
 {
 	_win = win;
-	_isDisp = 0;
-	getmaxyx(getWindow(), this->_yMax, this->_xMax);
-	setSizeX(1);
-	setSizeY(1);
+	_dis = 0;
+	getmaxyx(getWindow(), this->_my, this->_mx);
+	setSX(1);
+	setSY(1);
 }
 
 bool Shot::getIsDisp(void)
 {
-	return _isDisp;
+	return _dis;
 }
 
 
-void	Shot::checkCollision(Enemy *enems, Asteroids *aster)
+void	Shot::colCheck(Enemy *enems, Asteroids *aster)
 {
 	for (int i = 0; i < _enemiesNum; i++)
 	{
-		if ((enems[i].getXPos() == this->getXPos()) && (enems[i].getYPos() == this->getYPos()))
+		if ((enems[i].getPX() == this->getPX()) && (enems[i].getPY() == this->getPY()))
 		{
-			enems[i].deletePath();
+			enems[i].pathDell();
 			enems[i].initObject(getWindow());
 			this->initObject(getWindow());
-			this->deletePath();
+			this->pathDell();
 			setScore(getScore() + 5);
 		}
 	}
 	for (int i = 0; i < _asteroidsNum; i++)
 	{
-		if ((aster[i].getXPos() == this->getXPos()) && (aster[i].getYPos() == this->getYPos()))
+		if ((aster[i].getPX() == this->getPX()) && (aster[i].getPY() == this->getPY()))
 		{
-			aster[i].deletePath();
+			aster[i].pathDell();
 			aster[i].initObject(getWindow());
 			this->initObject(getWindow());
-			this->deletePath();
+			this->pathDell();
 		}
-		if ((aster[i].getXPos() + 1 == this->getXPos()) && (aster[i].getYPos() == this->getYPos()))
+		if ((aster[i].getPX() + 1 == this->getPX()) && (aster[i].getPY() == this->getPY()))
 		{
-			aster[i].deletePath();
+			aster[i].pathDell();
 			aster[i].initObject(getWindow());
 			this->initObject(getWindow());
-			this->deletePath();
+			this->pathDell();
 		}
-		if ((aster[i].getXPos() + 2 == this->getXPos()) && (aster[i].getYPos() == this->getYPos()))
+		if ((aster[i].getPX() + 2 == this->getPX()) && (aster[i].getPY() == this->getPY()))
 		{
-			aster[i].deletePath();
+			aster[i].pathDell();
 			aster[i].initObject(getWindow());
 			this->initObject(getWindow());
-			this->deletePath();
+			this->pathDell();
 		}
 	}
 }

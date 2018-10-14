@@ -10,12 +10,12 @@ Player::Player(WINDOW *win, Enemy *enemies, Asteroids *aster, Stars *star)
 	_enems = enemies;
 	_aster = aster;
 	_star = star;
-	getmaxyx(getWindow(), this->_yMax, this->_xMax);
-	setXPos(_xMax / 2 - 2);
-	setYPos(_yMax / 1.5);
+	getmaxyx(getWindow(), this->_my, this->_mx);
+	setPX(_mx / 2 - 2);
+	setPY(_my / 1.5);
 
-	setSizeX(3);
-	setSizeY(1);
+	setSX(3);
+	setSY(1);
 	keypad(getWindow(), true);
 	setLives(5);
 }
@@ -28,8 +28,8 @@ Player::~Player(void) {}
 
 Player		&Player::operator=( Player const &rfs )
 {
-	this->_xMax = rfs._xMax;
-	this->_yMax = rfs._yMax;
+	this->_mx = rfs._mx;
+	this->_my = rfs._my;
 	this->_enems = rfs._enems;
 	this->_star = rfs._star;
 	this->_shots = rfs._shots;
@@ -38,80 +38,80 @@ Player		&Player::operator=( Player const &rfs )
 }
 
 
-void		Player::deletePath(void)
+void		Player::pathDell(void)
 {
-	mvwaddstr(getWindow(), getYPos(), getXPos(), "     ");
+	mvwaddstr(getWindow(), getPY(), getPX(), "     ");
 }
 
-void Player::display(void)
+void Player::disp(void)
 {
 	start_color();
 	init_pair(1, COLOR_BLUE, COLOR_BLACK);
 	wattron(getWindow(), COLOR_PAIR(1));
 	wattron(getWindow(), A_BOLD);
-	mvwaddstr(getWindow(), getYPos(), getXPos(), "\\M/");
+	mvwaddstr(getWindow(), getPY(), getPX(), "\\M/");
 	wattroff(getWindow(), A_BOLD);
 	wattroff(getWindow(), COLOR_PAIR(1));
-	checkCollision();
+	colCheck();
 }
 
 void Player::mvup()
 {
-	this->deletePath();
-	int y = getYPos();
+	this->pathDell();
+	int y = getPY();
 	y -= 1;
 	if (y < 1)
 		y = 1;
-	setYPos(y);
+	setPY(y);
 }
 
-void Player::mvdown()
+void Player::dwnmv()
 {
-	this->deletePath();
-	int y = getYPos();
+	this->pathDell();
+	int y = getPY();
 	y += 1;
-	if (y > this->_yMax - 2)
-		y = this->_yMax - 2;
-	setYPos(y);
+	if (y > this->_my - 2)
+		y = this->_my - 2;
+	setPY(y);
 }
 
 void Player::mvleft()
 {
-	this->deletePath();
-	int x = getXPos();
+	this->pathDell();
+	int x = getPX();
 	x -= 1;
 	if (x < 1)
 		x = 1;
-	setXPos(x);
+	setPX(x);
 }
 
 void Player::mvright()
 {
-	this->deletePath();
-	int x = getXPos();
+	this->pathDell();
+	int x = getPX();
 	x += 1;
-	if (x > this->_xMax - _sizeX - 1)
-		x = this->_xMax - _sizeX - 1;
-	setXPos(x);
+	if (x > this->_mx - _sx - 1)
+		x = this->_mx - _sx - 1;
+	setPX(x);
 }
 
-void Player::checkCollision(void)
+void Player::colCheck(void)
 {
 	for (int i = 0; i < _enemiesNum; i++)
 	{
-		if ((_enems[i].getXPos() == this->getXPos()) && (_enems[i].getYPos() == this->getYPos()))
+		if ((_enems[i].getPX() == this->getPX()) && (_enems[i].getPY() == this->getPY()))
 		{
 			_enems[i].initObject(getWindow());
 			setLives(getLives() - 1);
 			break;
 		}
-		if ((_enems[i].getXPos() == this->getXPos() + 1) && (_enems[i].getYPos() == this->getYPos()))
+		if ((_enems[i].getPX() == this->getPX() + 1) && (_enems[i].getPY() == this->getPY()))
 		{
 			_enems[i].initObject(getWindow());
 			setLives(getLives() - 1);
 			break;
 		}
-		if ((_enems[i].getXPos() == this->getXPos() + 2) && (_enems[i].getYPos() == this->getYPos()))
+		if ((_enems[i].getPX() == this->getPX() + 2) && (_enems[i].getPY() == this->getPY()))
 		{
 			_enems[i].initObject(getWindow());
 			setLives(getLives() - 1);
@@ -120,55 +120,55 @@ void Player::checkCollision(void)
 	}
 	for (int i = 0; i < _asteroidsNum; i++)
 	{
-		if ((_aster[i].getXPos() == this->getXPos()) && (_aster[i].getYPos() == this->getYPos()))
+		if ((_aster[i].getPX() == this->getPX()) && (_aster[i].getPY() == this->getPY()))
 		{
 			_aster[i].initObject(getWindow());
 			setLives(getLives() - 1);
 			break;
 		}
-		if ((_aster[i].getXPos() == this->getXPos() + 1) && (_aster[i].getYPos() == this->getYPos()))
+		if ((_aster[i].getPX() == this->getPX() + 1) && (_aster[i].getPY() == this->getPY()))
 		{
 			_aster[i].initObject(getWindow());
 			setLives(getLives() - 1);
 			break;
 		}
-		if ((_aster[i].getXPos() == this->getXPos() + 2) && (_aster[i].getYPos() == this->getYPos()))
+		if ((_aster[i].getPX() == this->getPX() + 2) && (_aster[i].getPY() == this->getPY()))
 		{
 			_aster[i].initObject(getWindow());
 			setLives(getLives() - 1);
 			break;
 		}
-		if ((_aster[i].getXPos() + 1 == this->getXPos()) && (_aster[i].getYPos() == this->getYPos()))
+		if ((_aster[i].getPX() + 1 == this->getPX()) && (_aster[i].getPY() == this->getPY()))
 		{
 			_aster[i].initObject(getWindow());
 			setLives(getLives() - 1);
 			break;
 		}
-		if ((_aster[i].getXPos() + 1 == this->getXPos() + 1) && (_aster[i].getYPos() == this->getYPos()))
+		if ((_aster[i].getPX() + 1 == this->getPX() + 1) && (_aster[i].getPY() == this->getPY()))
 		{
 			_aster[i].initObject(getWindow());
 			setLives(getLives() - 1);
 			break;
 		}
-		if ((_aster[i].getXPos() + 1 == this->getXPos() + 2) && (_aster[i].getYPos() == this->getYPos()))
+		if ((_aster[i].getPX() + 1 == this->getPX() + 2) && (_aster[i].getPY() == this->getPY()))
 		{
 			_aster[i].initObject(getWindow());
 			setLives(getLives() - 1);
 			break;
 		}
-		if ((_aster[i].getXPos() + 2 == this->getXPos()) && (_aster[i].getYPos() == this->getYPos()))
+		if ((_aster[i].getPX() + 2 == this->getPX()) && (_aster[i].getPY() == this->getPY()))
 		{
 			_aster[i].initObject(getWindow());
 			setLives(getLives() - 1);
 			break;
 		}
-		if ((_aster[i].getXPos() + 2 == this->getXPos() + 1) && (_aster[i].getYPos() == this->getYPos()))
+		if ((_aster[i].getPX() + 2 == this->getPX() + 1) && (_aster[i].getPY() == this->getPY()))
 		{
 			_aster[i].initObject(getWindow());
 			setLives(getLives() - 1);
 			break;
 		}
-		if ((_aster[i].getXPos() + 2 == this->getXPos() + 2) && (_aster[i].getYPos() == this->getYPos()))
+		if ((_aster[i].getPX() + 2 == this->getPX() + 2) && (_aster[i].getPY() == this->getPY()))
 		{
 			_aster[i].initObject(getWindow());
 			setLives(getLives() - 1);
@@ -177,19 +177,19 @@ void Player::checkCollision(void)
 	}
 	for (int i = 0; i < _shots->shotsNum; i++)
 	{
-		if ((_shots[i].getXPos() == this->getXPos()) && (_shots[i].getYPos() == this->getYPos()))
+		if ((_shots[i].getPX() == this->getPX()) && (_shots[i].getPY() == this->getPY()))
 		{
 			_shots[i].initObject(getWindow());
 			setLives(getLives() - 1);
 			break;
 		}
-		if ((_shots[i].getXPos() == this->getXPos() + 1) && (_shots[i].getYPos() == this->getYPos()))
+		if ((_shots[i].getPX() == this->getPX() + 1) && (_shots[i].getPY() == this->getPY()))
 		{
 			_shots[i].initObject(getWindow());
 			setLives(getLives() - 1);
 			break;
 		}
-		if ((_shots[i].getXPos() == this->getXPos() + 2) && (_shots[i].getYPos() == this->getYPos()))
+		if ((_shots[i].getPX() == this->getPX() + 2) && (_shots[i].getPY() == this->getPY()))
 		{
 			_shots[i].initObject(getWindow());
 			setLives(getLives() - 1);
@@ -207,7 +207,7 @@ int Player::getmv()
 		this->mvup();
 		break;
 	case KEY_DOWN:
-		this->mvdown();
+		this->dwnmv();
 		break;
 	case KEY_LEFT:
 		this->mvleft();
@@ -244,17 +244,17 @@ void Player::shot(void)
 		{
 			if (!_shots[i].getIsDisp())
 			{
-				_shots[i].setXPos(getXPos());
-				_shots[i].setYPos(getYPos() - 1);
-				_shots[i].display();
+				_shots[i].setPX(getPX());
+				_shots[i].setPY(getPY() - 1);
+				_shots[i].disp();
 				guns--;
 			}
 		}
 		else
 		{
-			_shots[i].setXPos(getXPos() + 2);
-			_shots[i].setYPos(getYPos() - 1);
-			_shots[i].display();
+			_shots[i].setPX(getPX() + 2);
+			_shots[i].setPY(getPY() - 1);
+			_shots[i].disp();
 			break;
 		}
 	}

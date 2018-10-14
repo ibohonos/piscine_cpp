@@ -1,13 +1,14 @@
-#ifndef ASSAULTTERMINATOR_H
-#define ASSAULTTERMINATOR_H
+#ifndef ASSAULTTERMUNATOR_HPP
+#define ASSAULTTERMUNATOR_HPP
 
 #include "ISpaceMarine.hpp"
 
-class AssaultTerminator : public ISpaceMarine {
+class AssaultTerminator : public ISpaceMarine
+{
 	public:
 		AssaultTerminator();
-		AssaultTerminator(AssaultTerminator const &rfs);
 		~AssaultTerminator();
+		AssaultTerminator(AssaultTerminator const &rfs);
 
 		AssaultTerminator &operator=(AssaultTerminator const &rfs);
 

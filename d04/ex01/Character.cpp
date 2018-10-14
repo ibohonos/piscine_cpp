@@ -1,53 +1,34 @@
 #include "Character.hpp"
 
-Character::Character() {}
-
-Character::Character(std::string const & name) : _name(name) {
+Character::Character(std::string const & name)
+{
+	this->_name = name;
 	this->_ap = 40;
 	this->_wpn = NULL;
 }
 
-Character::Character(Character const &rfs) {
-	*this = rfs;
-}
+Character::Character(){}
 
 Character::~Character() {}
 
-Character &Character::operator=(Character const &rfs) {
+Character	&Character::operator=( Character const &rfs )
+{
 	this->_ap = rfs._ap;
 	this->_name = rfs._name;
 	this->_wpn = rfs._wpn;
 	return *this;
 }
 
-void 	Character::recoverAP() {
+Character::Character(Character const &rfs)
+{
+	*this = rfs;
+}
+
+void	Character::recoverAP()
+{
 	this->_ap += 10;
-	if ((this->_ap) > 40)
+	if (this->_ap > 40)
 		this->_ap = 40;
-}
-
-void 	Character::equip(AWeapon *wpn) {
-	this->_wpn = wpn;
-}
-
-void 	Character::attack(Enemy *en) {
-	if (!_wpn)
-		std::cout << this->_name << "has " << this->_ap << " AP and is unarmed" << std::endl;
-	else {
-		if (_wpn->getAPCost() <= this->_ap) {
-			this->_ap -= _wpn->getAPCost();
-			std::cout << this->_name << " attacks " << en->getType()
-				<< " with a " << this->_wpn->getName() << std::endl;
-			_wpn->attack();
-			en->takeDamage(_wpn->getDamage());
-			if (en->getHP() == 0) {
-				delete en;
-			}
-		}
-		else {
-			std::cout << "Not enough AP." << std::endl;
-		}
-	}
 }
 
 std::string		Character::getName() const {
@@ -66,11 +47,36 @@ AWeapon		*Character::getWpn() const {
 	return this->_wpn;
 }
 
-std::ostream 	&operator<<(std::ostream &o, Character const &rfs) {
-	if (rfs.getWpn())
-		o << rfs.getName() << " has " << rfs.getAP() << " AP and wields a " <<
-			rfs.getWpnName() << std::endl;
+void	Character::attack(Enemy* enemy)
+{
+	int   ap_cost;
+
+	if (this->_wpn != NULL && enemy != NULL)
+	{
+		ap_cost = this->_wpn->getAPCost();
+		if (this->_ap - ap_cost >= 0)
+		{
+			std::cout << this->_name << " attacks " << enemy->getType() \
+		        << "with a " << this->_wpn->getName() << std::endl;
+			this->_wpn->attack();
+		    enemy->takeDamage(this->_wpn->getDamage());
+		    if (enemy->getHP() <= 0)
+		        delete enemy;
+		    this->_ap -= ap_cost;
+		}
+
+	}
+}
+
+void 	Character::equip(AWeapon *wpn)
+{
+	this->_wpn = wpn;
+}
+
+std::ostream & operator<<(std::ostream & o, Character const & src) {
+	if (src.getWpn())
+		o << src.getName()<< " has "<< src.getAP() <<" AP and wields a " << src.getWpn()->getName() << std::endl;
 	else
-		std::cout << rfs.getName() << "has " << rfs.getAP() << " AP and is unarmed" << std::endl;
+		o << src.getName()<< " has "<< src.getAP() <<" AP and is unarmed" << std::endl;
 	return o;
 }

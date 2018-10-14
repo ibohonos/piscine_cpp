@@ -10,18 +10,18 @@ class Asteroids : public Objects
 		Asteroids(void);
 		Asteroids(Asteroids const &other);
 		~Asteroids(void);
-		void mvdown(void);
-		void display(void);
-		void deletePath(void);
+		void dwnmv(void);
+		void disp(void);
+		void pathDell(void);
 
 		void initObject(WINDOW *win);
 		Asteroids	&operator=( Asteroids const &rfs );
 
 	private:
-		int			_xMax;
-		int			_yMax;
+		int			_mx;
+		int			_my;
 		static int	_asteroidsNum;
-		bool		_isDisp;
+		bool		_dis;
 };
 
 #endif

@@ -17,21 +17,21 @@ class EnemyShot : public Objects
         EnemyShot &operator=(EnemyShot const &rhs);
 
         void move(void);
-        void display(void);
-        void deletePath(void);
+        void disp(void);
+        void pathDell(void);
 
         void initObject(WINDOW *win);
 
         bool getIsDisp(void);
         bool checkLine(void);
-        bool checkCollision(void);
+        bool colCheck(void);
         
         void setEnemiesPlayer(Enemy * enemies, Player * player);
         
     private:
-        int _xMax;
-        int _yMax;
-        bool _isDisp;
+        int _mx;
+        int _my;
+        bool _dis;
         Enemy * _enemies;
         Player * _player;
 };

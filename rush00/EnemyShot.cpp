@@ -3,19 +3,19 @@
 EnemyShot::EnemyShot(){}
 EnemyShot::~EnemyShot(){}
 
-void EnemyShot::deletePath(void)
+void EnemyShot::pathDell(void)
 {
-    mvwaddstr(getWindow(), getYPos(), getXPos(), " ");
+    mvwaddstr(getWindow(), getPY(), getPX(), " ");
 }
 
-void EnemyShot::display(void)
+void EnemyShot::disp(void)
 {
     start_color();
     init_pair(99, COLOR_MAGENTA, COLOR_BLACK);
     wattron(getWindow(), COLOR_PAIR(99));
-    mvwaddstr(getWindow(), getYPos(), getXPos(), "-");
+    mvwaddstr(getWindow(), getPY(), getPX(), "-");
     wattroff(getWindow(), COLOR_PAIR(99));
-    _isDisp = 1;
+    _dis = 1;
 }
 
 void EnemyShot::setEnemiesPlayer(Enemy * enemies, Player * player)
@@ -31,9 +31,9 @@ EnemyShot::EnemyShot(EnemyShot const &other)
 
 EnemyShot &EnemyShot::operator=(EnemyShot const &rhs)
 {
-    _xMax = rhs._xMax;
-    _yMax = rhs._yMax;
-    _isDisp = rhs._isDisp;
+    _mx = rhs._mx;
+    _my = rhs._my;
+    _dis = rhs._dis;
     _enemies = rhs._enemies;
     _player = rhs._player;
     return *this;
@@ -41,55 +41,55 @@ EnemyShot &EnemyShot::operator=(EnemyShot const &rhs)
 
 void EnemyShot::move(void)
 {
-    if (!_isDisp)
+    if (!_dis)
         return;
-    this->deletePath();
-    int y = getYPos();
+    this->pathDell();
+    int y = getPY();
     y += 1;
-    if (y > this->_yMax - 2)
+    if (y > this->_my - 2)
     {
-        setYPos(0);
-        setXPos(0);
-        this->display();
+        setPY(0);
+        setPX(0);
+        this->disp();
         this->initObject(getWindow());
         return;
     }
-    setYPos(y);
-    this->display();
+    setPY(y);
+    this->disp();
 }
 
 void EnemyShot::initObject(WINDOW *win)
 {
     _win = win;
-    _isDisp = false;
-    getmaxyx(getWindow(), this->_yMax, this->_xMax);
-    setSizeX(1);
-    setSizeY(1);
+    _dis = false;
+    getmaxyx(getWindow(), this->_my, this->_mx);
+    setSX(1);
+    setSY(1);
 }
 
 bool EnemyShot::getIsDisp(void)
 {
-    return _isDisp;
+    return _dis;
 }
 
-bool EnemyShot::checkCollision(void)
+bool EnemyShot::colCheck(void)
 {
-    if ((_player->getXPos() == this->getXPos()) && (_player->getYPos() == this->getYPos()))
+    if ((_player->getPX() == this->getPX()) && (_player->getPY() == this->getPY()))
     {
         this->initObject(getWindow());
-        this->deletePath();
+        this->pathDell();
         return(true);
     }
-    if ((_player->getXPos() + 1 == this->getXPos()) && (_player->getYPos() == this->getYPos()))
+    if ((_player->getPX() + 1 == this->getPX()) && (_player->getPY() == this->getPY()))
     {
         this->initObject(getWindow());
-        this->deletePath();
+        this->pathDell();
         return(true);
     }
-    if ((_player->getXPos() + 2 == this->getXPos()) && (_player->getYPos() == this->getYPos()))
+    if ((_player->getPX() + 2 == this->getPX()) && (_player->getPY() == this->getPY()))
     {
         this->initObject(getWindow());
-        this->deletePath();
+        this->pathDell();
         return(true);
     }
     return(false);
@@ -99,13 +99,13 @@ bool EnemyShot::checkLine(void)
 {
     for (int i = 0; i < _enemiesNum; i++)
     {
-        if ((_enemies[i].getXPos()) == (_player->getXPos()))
+        if ((_enemies[i].getPX()) == (_player->getPX()))
         {
             if (!this->getIsDisp())
             {
-                setXPos(_enemies->getXPos());
-                setYPos(_enemies->getYPos() + 1);
-                display();
+                setPX(_enemies->getPX());
+                setPY(_enemies->getPY() + 1);
+                disp();
             }
         }
     }

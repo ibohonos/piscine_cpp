@@ -1,16 +1,17 @@
-#ifndef RADSCORPION_H
-#define RADSCORPION_H
-
-#include <iostream>
+#ifndef RADSCORPION_HPP
+#define RADSCORPION_HPP
 #include "Enemy.hpp"
+#include <iostream>
 
-class RadScorpion : public Enemy {
+class RadScorpion : public Enemy
+{
 	public:
 		RadScorpion();
+		virtual ~RadScorpion();
 		RadScorpion(RadScorpion const &rfs);
-		~RadScorpion();
 
-		RadScorpion		&operator=(RadScorpion const &frs);
+		RadScorpion	&operator=(RadScorpion const &rfs);
+
 };
 
 #endif

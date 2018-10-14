@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-int main(void) {
+int main() {
 	int i = 0;
 
 	while (i < 201)

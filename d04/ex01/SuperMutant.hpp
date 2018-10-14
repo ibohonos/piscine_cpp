@@ -1,18 +1,18 @@
-#ifndef SUPERMUTANT_H
-#define SUPERMUTANT_H
-
-#include <iostream>
+#ifndef SUPERMUTANT_HPP
+#define SUPERMUTANT_HPP
 #include "Enemy.hpp"
+#include <iostream>
 
-class SuperMutant : public Enemy {
+class SuperMutant : public Enemy
+{
 	public:
 		SuperMutant();
+		virtual ~SuperMutant();
 		SuperMutant(SuperMutant const &rfs);
-		~SuperMutant();
 
-		SuperMutant 	&operator=(SuperMutant const &frs);
+		SuperMutant	&operator=(SuperMutant const &rfs);
+		virtual void	takeDamage(int p);
 
-		virtual	void	takeDamage(int p);
 };
 
 #endif

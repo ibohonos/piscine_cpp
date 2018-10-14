@@ -16,54 +16,54 @@ Asteroids::Asteroids(Asteroids const &other)
 Asteroids::~Asteroids(void) {}
 
 Asteroids	&Asteroids::operator=( Asteroids const &rfs ) {
-	this->_xMax = rfs._xMax;
-	this->_yMax = rfs._yMax;
+	this->_mx = rfs._mx;
+	this->_my = rfs._my;
 	this->_asteroidsNum = rfs._asteroidsNum;
-	this->_isDisp = rfs._isDisp;
+	this->_dis = rfs._dis;
 	return *this;
 }
 
-void Asteroids::deletePath(void)
+void Asteroids::pathDell(void)
 {
-	mvwaddstr(getWindow(), getYPos(), getXPos(), "   ");
+	mvwaddstr(getWindow(), getPY(), getPX(), "   ");
 }
 
-void Asteroids::display(void)
+void Asteroids::disp(void)
 {
 	start_color();
 	init_pair(10, COLOR_CYAN, COLOR_BLACK);
 	wattron(getWindow(), A_REVERSE);
 	wattron(getWindow(), COLOR_PAIR(10));
-	mvwaddstr(getWindow(), getYPos(), getXPos(), " @ ");
+	mvwaddstr(getWindow(), getPY(), getPX(), " @ ");
 	wattroff(getWindow(), COLOR_PAIR(10));
 	wattroff(getWindow(), A_REVERSE);
-	_isDisp = 1;
+	_dis = 1;
 }
 
-void Asteroids::mvdown(void)
+void Asteroids::dwnmv(void)
 {
-	if (!_isDisp)
+	if (!_dis)
 		return;
-	this->deletePath();
-	int y = getYPos();
+	this->pathDell();
+	int y = getPY();
 	y += 1;
-	if (y > this->_yMax - 2)
+	if (y > this->_my - 2)
 	{
-		this->deletePath();
+		this->pathDell();
 		this->initObject(getWindow());
 		return;
 	}
-	setYPos(y);
-	this->display();
+	setPY(y);
+	this->disp();
 }
 
 void Asteroids::initObject(WINDOW *win)
 {
 	_win = win;
-	_isDisp = 0;
-	getmaxyx(getWindow(), this->_yMax, this->_xMax);
-	setXPos(rand() % this->_xMax + 2);
-	setYPos(3);
-	setSizeX(3);
-	setSizeY(1);
+	_dis = 0;
+	getmaxyx(getWindow(), this->_my, this->_mx);
+	setPX(rand() % this->_mx + 2);
+	setPY(3);
+	setSX(3);
+	setSY(1);
 }

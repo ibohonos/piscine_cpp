@@ -2,19 +2,22 @@
 
 PlasmaRifle::PlasmaRifle() : AWeapon("Plasma Rifle", 5, 21) {}
 
-PlasmaRifle::PlasmaRifle(PlasmaRifle const &rfs) : AWeapon(rfs) {
-	*this = rfs;
-}
-
 PlasmaRifle::~PlasmaRifle() {}
 
-PlasmaRifle 	&PlasmaRifle::operator=(PlasmaRifle const &rfs) {
+PlasmaRifle	&PlasmaRifle::operator=( PlasmaRifle const &rfs )
+{
 	this->_name = rfs._name;
 	this->_damage = rfs._damage;
-	this->_APCost = rfs._APCost;
+	this->_apcost = rfs._apcost;
 	return *this;
 }
 
-void 	PlasmaRifle::attack() const {
+PlasmaRifle::PlasmaRifle(PlasmaRifle const &rfs) : AWeapon(rfs)
+{
+	*this = rfs;
+}
+
+void	PlasmaRifle::attack() const
+{
 	std::cout << "* piouuu piouuu piouuu *" << std::endl;
 }

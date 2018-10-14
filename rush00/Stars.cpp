@@ -16,54 +16,54 @@ Stars::Stars(Stars const &other) {
 Stars::~Stars(void) {}
 
 Stars		&Stars::operator=( Stars const &rfs ) {
-	this->_xMax = rfs._xMax;
-	this->_yMax = rfs._yMax;
-	this->_isDisp = rfs._isDisp;
+	this->_mx = rfs._mx;
+	this->_my = rfs._my;
+	this->_dis = rfs._dis;
 	this->_starsNum = rfs._starsNum;
 	return *this;
 }
 
-void Stars::deletePath(void)
+void Stars::pathDell(void)
 {
-	mvwaddstr(getWindow(), getYPos(), getXPos(), " ");
+	mvwaddstr(getWindow(), getPY(), getPX(), " ");
 }
 
-void Stars::display(void)
+void Stars::disp(void)
 {
 	start_color();
 	init_pair(7, COLOR_BLACK, COLOR_YELLOW);
 	wattron(getWindow(), A_REVERSE);
 	wattron(getWindow(), COLOR_PAIR(7));
-	mvwaddstr(getWindow(), getYPos(), getXPos(), ".");
+	mvwaddstr(getWindow(), getPY(), getPX(), ".");
 	wattroff(getWindow(), COLOR_PAIR(7));
 	wattroff(getWindow(), A_REVERSE);
-	_isDisp = 1;
+	_dis = 1;
 }
 
-void Stars::mvdown(void)
+void Stars::dwnmv(void)
 {
-	if (!_isDisp)
+	if (!_dis)
 		return;
-	this->deletePath();
-	int y = getYPos();
+	this->pathDell();
+	int y = getPY();
 	y += 1;
-	if (y > this->_yMax - 2)
+	if (y > this->_my - 2)
 	{
-		this->deletePath();
+		this->pathDell();
 		this->initObject(getWindow());
 		return;
 	}
-	setYPos(y);
-	this->display();
+	setPY(y);
+	this->disp();
 }
 
 void Stars::initObject(WINDOW *win)
 {
 	_win = win;
-	_isDisp = 0;
-	getmaxyx(getWindow(), this->_yMax, this->_xMax);
-	setXPos(rand() % this->_xMax + 2);
-	setYPos(rand() % this->_yMax + 2);
-	setSizeX(1);
-	setSizeY(1);
+	_dis = 0;
+	getmaxyx(getWindow(), this->_my, this->_mx);
+	setPX(rand() % this->_mx + 2);
+	setPY(rand() % this->_my + 2);
+	setSX(1);
+	setSY(1);
 }

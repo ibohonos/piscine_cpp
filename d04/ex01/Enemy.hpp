@@ -1,25 +1,26 @@
-#ifndef ENEMY_H
-#define ENEMY_H
-
+#ifndef ENEMY_HPP
+#define ENEMY_HPP
 #include <iostream>
 
-class Enemy {
+class Enemy
+{
 	protected:
 		int			_hp;
 		std::string	_type;
-		
-		Enemy();
-
 	public:
+		Enemy();
+		virtual ~Enemy();
 		Enemy(int hp, std::string const & type);
 		Enemy(Enemy const &rfs);
-		virtual ~Enemy();
 
 		Enemy 	&operator=(Enemy const &frs);
 
 		std::string		getType() const;
 		int 			getHP() const;
-		virtual void 	takeDamage(int);
+		virtual void	takeDamage(int p);
 };
+
+
+
 
 #endif

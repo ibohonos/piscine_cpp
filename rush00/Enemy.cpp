@@ -17,58 +17,58 @@ Enemy::~Enemy(void) {}
 
 bool Enemy::getIsDisp(void)
 {
-	return _isDisp;
+	return _dis;
 }
 
 Enemy	&Enemy::operator=( Enemy const &rfs ) {
-	this->_xMax = rfs._xMax;
-	this->_yMax = rfs._yMax;
+	this->_mx = rfs._mx;
+	this->_my = rfs._my;
 	this->_enemiesNum = rfs._enemiesNum;
-	this->_isDisp = rfs._isDisp;
+	this->_dis = rfs._dis;
 	return *this;
 }
 
-void Enemy::deletePath(void)
+void Enemy::pathDell(void)
 {
-	mvwaddstr(getWindow(), getYPos(), getXPos(), " ");
+	mvwaddstr(getWindow(), getPY(), getPX(), " ");
 }
 
-void Enemy::display(void)
+void Enemy::disp(void)
 {
 	start_color();
 	init_pair(2, COLOR_MAGENTA, COLOR_WHITE);
 	wattron(getWindow(), A_REVERSE);
 	wattron(getWindow(), COLOR_PAIR(2));
-	mvwaddstr(getWindow(), getYPos(), getXPos(), "|");
+	mvwaddstr(getWindow(), getPY(), getPX(), "|");
 	wattroff(getWindow(), COLOR_PAIR(2));
 	wattroff(getWindow(), A_REVERSE);
-	_isDisp = 1;
+	_dis = 1;
 }
 
-void Enemy::mvdown(void)
+void Enemy::dwnmv(void)
 {
-	if (!_isDisp)
+	if (!_dis)
 		return;
-	this->deletePath();
-	int y = getYPos();
+	this->pathDell();
+	int y = getPY();
 	y += 1;
-	if (y > this->_yMax - 2)
+	if (y > this->_my - 2)
 	{
-		this->deletePath();
+		this->pathDell();
 		this->initObject(getWindow());
 		return;
 	}
-	setYPos(y);
-	this->display();
+	setPY(y);
+	this->disp();
 }
 
 void Enemy::initObject(WINDOW *win)
 {
 	_win = win;
-	_isDisp = 0;
-	getmaxyx(getWindow(), this->_yMax, this->_xMax);
-	setXPos(rand() % this->_xMax + 2);
-	setYPos(1);
-	setSizeX(1);
-	setSizeY(1);
+	_dis = 0;
+	getmaxyx(getWindow(), this->_my, this->_mx);
+	setPX(rand() % this->_mx + 2);
+	setPY(1);
+	setSX(1);
+	setSY(1);
 }

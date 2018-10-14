@@ -3,11 +3,12 @@
 
 #include "ISpaceMarine.hpp"
 
-class TacticalMarine : public ISpaceMarine {
+class TacticalMarine : public ISpaceMarine
+{
 	public:
 		TacticalMarine();
-		TacticalMarine(TacticalMarine const &rfs);
 		~TacticalMarine();
+		TacticalMarine(TacticalMarine const &rfs);
 
 		TacticalMarine &operator=(TacticalMarine const &rfs);
 

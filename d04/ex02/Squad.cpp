@@ -1,99 +1,138 @@
 #include "Squad.hpp"
 #include <iostream>
 
-Squad::Squad() : _units(0), _marines(NULL) {
+Squad::Squad( void )
+{
+	_list = NULL;
+	_nb = 0;
 }
 
-Squad::Squad(Squad const &rfs) {
-	this->_units = rfs._units;
+Squad::Squad( Squad const & src )
+{
+	t_list	*tmp;
+	t_list	*tmp2;
 
-	t_list **dst = &this->_marines;
-	t_list *tmp = rfs._marines;
-
-	while (tmp) {
-		*dst = new t_list;
-		(*dst)->m = tmp->m->clone();
-		dst = &(*dst)->next;
-		tmp = tmp->next;
+	tmp = _list;
+	tmp2 = src._list;
+	_list = NULL;
+	while (tmp2)
+	{
+		if (_list == NULL)
+		{
+			_list = new(t_list);
+			_list->data = tmp2->data;
+			_list->next = NULL;
+		}
+		else
+		{
+			tmp = _list;
+			while (tmp->next)
+				tmp = tmp->next;
+			tmp->next = new(t_list);
+			tmp->next->data = tmp2->data;
+			tmp->next->next = NULL;
+		}
+		tmp2 = tmp2->next;
 	}
-
-	*dst = NULL;
+	this->_nb = src._nb;
 }
-	
-Squad::~Squad() {
+
+
+Squad&  Squad::operator=(Squad const & rhs)
+{
+    t_list  *tmp;
+
+    tmp= _list;
+    while (tmp)
+    {
+		delete tmp->data;
+    }
+
+	t_list	*tmp2;
+
+	tmp = _list;
+	tmp2 = rhs._list;
+	_list = NULL;
+	while (tmp2)
+	{
+		if (_list == NULL)
+		{
+			_list = new(t_list);
+			_list->data = tmp2->data;
+			_list->next = NULL;
+		}
+		else
+		{
+			tmp = _list;
+			while (tmp->next)
+				tmp = tmp->next;
+			tmp->next = new(t_list);
+			tmp->next->data = tmp2->data;
+			tmp->next->next = NULL;
+		}
+		tmp2 = tmp2->next;
+	}
+	this->_nb = rhs._nb;
+    return *this;
+}
+
+Squad::~Squad( void )
+{
 	t_list	*tmp;
 
-	while (this->_marines)
+	while (_list)
 	{
-		tmp = _marines->next;
-		if (_marines->m)
-			delete _marines->m;
-		delete _marines;
-		this->_marines = tmp;
+		tmp = _list;
+		delete _list->data;
+		_list = _list->next;
+		delete tmp;
 	}
-	return;
 }
 
-Squad &Squad::operator=(Squad const &rfs) {
-	this->_units = rfs._units;
+int		Squad::getCount( void ) const
+{
+	return _nb;
+}
 
-	t_list **dst = &this->_marines;
-	t_list *tmp = rfs._marines;
+ISpaceMarine*	Squad::getUnit( int index ) const
+{
+	t_list	*tmp;
 
-	while (tmp) {
-		if (*dst) {
-			if ((*dst)->m)
-				delete (*dst)->m;
-		} else {
-			*dst = new t_list;
-		}
-		(*dst)->m = tmp->m->clone();
-		dst = &(*dst)->next;
+	tmp = _list;
+	while (index != 0 && tmp)
+	{
 		tmp = tmp->next;
+		index--;
 	}
-	if (*dst) {
-		tmp = *dst;
-		*dst = NULL;
-		while (tmp) {
-			t_list *tmpNext;
-			if (tmp->m)
-				delete tmp->m;
-			tmpNext = tmp->next;
-			delete tmp;
-			tmp = tmpNext;
+	return (tmp->data);
+}
+
+
+int		Squad::push( ISpaceMarine* sm )
+{
+	t_list	*tmp;
+
+	if (sm == NULL)
+		return (_nb);
+	if (_list == NULL)
+	{
+		_list = new(t_list);
+		_list->data = sm;
+		_list->next = NULL;
+	}
+	else
+	{
+		tmp = _list;
+		while (tmp->next)
+		{
+			if (tmp->data == sm)
+				return (_nb);
+			tmp = tmp->next;
 		}
+		tmp->next = new(t_list);
+		tmp->next->data = sm;
+		tmp->next->next = NULL;
 	}
-	return *this;
-}
-
-int 	Squad::push(ISpaceMarine *mar) {
-	t_list **tmp;
-
-	tmp = &(this->_marines);
-	while (*tmp) {
-		tmp = &(*tmp)->next;
-	}
-	*tmp = new t_list;
-	(*tmp)->m = mar;
-	(*tmp)->next = NULL;
-	this->_units++;
-	return (this->_units);
-}
-
-int 		Squad::getCount() const {
-	return this->_units;
-}
-
-ISpaceMarine *Squad::getUnit(int n) const {
-	t_list *tmp;
-	int i = 0;
-
-	tmp = this->_marines;
-	while (tmp) {
-		if (i == n)
-			return tmp->m;
-		tmp = tmp->next;
-		i++;
-	}
-	return (NULL);
+	_nb++;
+	return (_nb);
 }

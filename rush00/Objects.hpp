@@ -16,10 +16,10 @@ class Objects {
 		~Objects(void);
 
 		Objects			&operator=( Objects const &rfs );
-		int				getXPos(void);
-		int				getYPos(void);
-		int				getSizeX(void);
-		int				getSizeY(void);
+		int				getPX(void);
+		int				getPY(void);
+		int				getSX(void);
+		int				getSY(void);
 		std::string		getColor(void);
 		WINDOW			*getWindow(void);
 		int				getEnemsN(void);
@@ -27,10 +27,10 @@ class Objects {
 		int				getStarN(void);
 		int				getShotNum(void);
 
-		void			setXPos(int n);
-		void			setYPos(int n);
-		void			setSizeX(int n);
-		void			setSizeY(int n);
+		void			setPX(int n);
+		void			setPY(int n);
+		void			setSX(int n);
+		void			setSY(int n);
 		void			setColor(std::string str);
 		void			setEnemsN(int n);
 		void			setAsterN(int n);
@@ -41,10 +41,10 @@ class Objects {
 	protected:
 		WINDOW			*_win;
 
-		int				_xPos;
-		int				_yPos;
-		int				_sizeX;
-		int				_sizeY;
+		int				_px;
+		int				_py;
+		int				_sx;
+		int				_sy;
 		std::string		_color;
 		static int	_enemiesNum;
 		static int	_asteroidsNum;
